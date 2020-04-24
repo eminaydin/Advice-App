@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.css';
 import axios from "axios"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from "react-bootstrap/Card"
+import Button from "react-bootstrap/Button"
+
 class App extends React.Component {
   state = {
     advice:""
@@ -29,7 +33,18 @@ console.log(err);
     const {advice} = this.state;
     return (
     <div className="App">
-     <p>{advice}</p>
+     
+     
+     <Card className="card-body">
+  <Card.Header as="h5" className="advice-header">Simple advice app</Card.Header>
+  <Card.Body>
+  
+    <Card.Text>
+    <p className="advice-text">{advice}</p>
+    </Card.Text>
+    <Button variant="primary" onClick={this.fetchAdvice}>Gimme new advice!</Button>
+  </Card.Body>
+</Card>
     </div>
   );
 }
